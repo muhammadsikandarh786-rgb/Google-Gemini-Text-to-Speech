@@ -15,13 +15,15 @@ import "java.io.*"
 import "android.speech.tts.TextToSpeech"
 import "android.app.*"
 import "android.content.*"
+import "android.net.ConnectivityManager"
+import "android.net.NetworkInfo"
 
 local context = activity or service
 local mainHandler = Handler(Looper.getMainLooper())
 local tts = nil
 local mainDialog = nil
 
-local CURRENT_VERSION = "1.0"
+local CURRENT_VERSION = "1.1"
 local VERSION_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/version.txt"
 local UPDATE_CODE_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/main.lua"
 local PLUGIN_PATH = "/storage/emulated/0/解说/Plugins/Google Gemini Text to Speech/main.lua"
@@ -29,8 +31,8 @@ local updateInProgress = false
 local prefs = context.getSharedPreferences("GeminiTTS_Prefs", Context.MODE_PRIVATE)
 
 pcall(function()
-    Http.setConnTimeout(60000)
-    Http.setReadTimeout(60000)
+    Http.setConnTimeout(30000)
+    Http.setReadTimeout(30000)
 end)
 
 local VOICE_LIST = {
@@ -60,6 +62,12 @@ local MAX_RETRY = 3
 
 local PREFS_NAME = "Gemini_TTS_Pro"
 
+function isInternetConnected()
+    local connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE)
+    local activeNetwork = connectivityManager.getActiveNetworkInfo()
+    return activeNetwork ~= nil and activeNetwork.isConnected()
+end
+
 function trim(s)
     if s == nil then return "" end
     return tostring(s):gsub("^%s*(.-)%s*$", "%1")
@@ -81,7 +89,11 @@ end
 
 function checkUpdate()
     if updateInProgress then
-        showUpdateErrorDialog("Update In Progress", "An update is already in progress. Please wait.")
+        return
+    end
+    
+    -- پہلے چیک کریں انٹرنیٹ ہے یا نہیں
+    if not isInternetConnected() then
         return
     end
     
@@ -935,130 +947,22 @@ function aboutAndSupport()
             paddingBottom = "20dp";
         };
         {
-            TextView;
-            text = "Join Our Community";
-            textSize = 16;
-            textColor = "#000000";
-            gravity = "center";
-            paddingBottom = "10dp";
-        };
-        {
-            ScrollView;
+            Button;
+            id = "goBackButton";
+            text = "GO BACK";
             layout_width = "fill";
             layout_height = "wrap_content";
-            {
-                LinearLayout;
-                orientation = "vertical";
-                layout_width = "fill";
-                layout_height = "wrap_content";
-                gravity = "center";
-                layout_marginTop = "5dp";
-                {
-                    Button;
-                    id = "joinWhatsAppGroupButton";
-                    text = "JOIN WHATSAPP GROUP";
-                    layout_width = "fill";
-                    layout_height = "wrap_content";
-                    layout_margin = "2dp";
-                    textSize = "12sp";
-                    padding = "8dp";
-                    backgroundColor = "#25D366";
-                    textColor = "#FFFFFF";
-                };
-                {
-                    Button;
-                    id = "joinYouTubeChannelButton";
-                    text = "JOIN YOUTUBE CHANNEL";
-                    layout_width = "fill";
-                    layout_height = "wrap_content";
-                    layout_margin = "2dp";
-                    textSize = "12sp";
-                    padding = "8dp";
-                    backgroundColor = "#FF0000";
-                    textColor = "#FFFFFF";
-                };
-                {
-                    Button;
-                    id = "joinTelegramChannelButton";
-                    text = "JOIN TELEGRAM CHANNEL";
-                    layout_width = "fill";
-                    layout_height = "wrap_content";
-                    layout_margin = "2dp";
-                    textSize = "12sp";
-                    padding = "8dp";
-                    backgroundColor = "#2196F3";
-                    textColor = "#FFFFFF";
-                };
-                {
-                    Button;
-                    id = "goBackButton";
-                    text = "GO BACK";
-                    layout_width = "fill";
-                    layout_height = "wrap_content";
-                    layout_margin = "2dp";
-                    textSize = "12sp";
-                    padding = "8dp";
-                    backgroundColor = "#9E9E9E";
-                    textColor = "#FFFFFF";
-                };
-            };
+            layout_marginTop = "10dp";
+            textSize = "14sp";
+            padding = "12dp";
+            backgroundColor = "#9E9E9E";
+            textColor = "#FFFFFF";
         };
     }
     local help_dialog = LuaDialog(context)
     help_dialog.setTitle("Developer: Ranamuhammadsikandarhayat")
     help_dialog.setView(loadlayout(help_layout, help_views))
     help_dialog.setCancelable(true)
-    
-    help_views.joinWhatsAppGroupButton.onClick = function()
-        if mainDialog then
-            mainDialog.dismiss()
-        end
-        help_dialog.dismiss()
-        local success, errorMsg = pcall(function()
-            local message = "Assalam%20o%20Alaikum.%20I%20hope%20you%20are%20doing%20well.%20I%20would%20like%20to%20join%20your%20WhatsApp%20group.%20Kindly%20share%20the%20instructions.%20group%20rules%20and%20regulations.%20Thank%20you.%20so%20much"
-            local url = "https://wa.me/923486623399?text=" .. message
-            local intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            context.startActivity(intent)
-        end)
-        if not success then
-            showToast("Could not open WhatsApp")
-        end
-    end
-    
-    help_views.joinYouTubeChannelButton.onClick = function()
-        if mainDialog then
-            mainDialog.dismiss()
-        end
-        help_dialog.dismiss()
-        local success, errorMsg = pcall(function()
-            local url = "https://www.youtube.com/@TechForVI"
-            local intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            context.startActivity(intent)
-        end)
-        if not success then
-            showToast("Could not open YouTube")
-        end
-    end
-    
-    help_views.joinTelegramChannelButton.onClick = function()
-        if mainDialog then
-            mainDialog.dismiss()
-        end
-        help_dialog.dismiss()
-        local success, errorMsg = pcall(function()
-            local url = "https://t.me/TechForVI"
-            local intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            intent.setPackage("org.telegram.messenger")
-            context.startActivity(intent)
-        end)
-        if not success then
-            pcall(function()
-                local url = "https://t.me/TechForVI"
-                local intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                context.startActivity(intent)
-            end)
-        end
-    end
     
     help_views.goBackButton.onClick = function()
         help_dialog.dismiss()
@@ -1218,7 +1122,7 @@ function showMain()
                 {
                     Button,
                     id = "aboutBtn",
-                    text = "ABOUT & SUPPORT",
+                    text = "ABOUT",
                     layout_width = "0dp",
                     layout_weight = "1",
                     backgroundColor = "#607D8B",
@@ -1385,13 +1289,7 @@ function showMain()
     dlg.show()
 end
 
-Thread(luajava.bindClass("java.lang.Runnable"){
-    run = function()
-        Thread.sleep(3000)
-        checkUpdate()
-    end
-}).start()
-
+-- پہلے مین ڈائلاگ دکھائیں (فوری اوپن ہونے کے لیے)
 loadSettings()
 if googleApiKey == "" then
     showToast("Please configure your API key first")
@@ -1399,3 +1297,13 @@ if googleApiKey == "" then
 else
     showMain()
 end
+
+-- پھر بیک گراؤنڈ میں اپڈیٹ چیک کریں (سست ریسپانس سے بچنے کے لیے)
+delay(5000, function()
+    Thread(luajava.bindClass("java.lang.Runnable"){
+        run = function()
+            Thread.sleep(2000)
+            checkUpdate()
+        end
+    }).start()
+end)
