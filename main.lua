@@ -13,11 +13,20 @@ import "android.os.*"
 import "android.graphics.Typeface"
 import "java.io.*"
 import "android.speech.tts.TextToSpeech"
+import "android.app.*"
+import "android.content.*"
 
 local context = activity or service
 local mainHandler = Handler(Looper.getMainLooper())
 local tts = nil
 local mainDialog = nil
+
+local CURRENT_VERSION = "1.0"
+local VERSION_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/version.txt"
+local UPDATE_CODE_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/main.lua"
+local PLUGIN_PATH = "/storage/emulated/0/解说/Plugins/Google Gemini Text to Speech/main.lua"
+local updateInProgress = false
+local prefs = context.getSharedPreferences("GeminiTTS_Prefs", Context.MODE_PRIVATE)
 
 pcall(function()
     Http.setConnTimeout(60000)
@@ -32,7 +41,7 @@ local VOICE_LIST = {
 }
 
 local MODELS = {"gemini-2.5-flash-preview-tts"}
-local DEFAULT_CHUNK_SIZE = 4000  -- بڑھا دی گئی حد (500 سے 4000)
+local DEFAULT_CHUNK_SIZE = 4000
 
 local selectedVoice = "Puck"
 local selectedModel = "gemini-2.5-flash-preview-tts"
@@ -43,14 +52,154 @@ local mediaPlayer = nil
 local isPlaying = false
 local googleApiKey = ""
 local hasGenerated = false
-local CHUNK_SIZE = DEFAULT_CHUNK_SIZE  -- متغیر حد
+local CHUNK_SIZE = DEFAULT_CHUNK_SIZE
 
 local activeHttpRequest = nil
 local retryCount = 0
 local MAX_RETRY = 3
 
 local PREFS_NAME = "Gemini_TTS_Pro"
-local prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+function trim(s)
+    if s == nil then return "" end
+    return tostring(s):gsub("^%s*(.-)%s*$", "%1")
+end
+
+function showUpdateErrorDialog(title, message)
+    mainHandler.post(Runnable({
+        run = function()
+            local errorDialog = LuaDialog(context)
+            errorDialog.setTitle(title)
+            errorDialog.setMessage(message)
+            errorDialog.setButton("OK", function()
+                errorDialog.dismiss()
+            end)
+            errorDialog.show()
+        end
+    }))
+end
+
+function checkUpdate()
+    if updateInProgress then
+        showUpdateErrorDialog("Update In Progress", "An update is already in progress. Please wait.")
+        return
+    end
+    
+    local timestamp = tostring(os.time())
+    Http.get(VERSION_URL .. "?t=" .. timestamp, function(code, response)
+        if code == 200 and response then
+            local onlineVersion = trim(response)
+            if onlineVersion ~= CURRENT_VERSION then
+                Http.get(UPDATE_CODE_URL .. "?t=" .. timestamp, function(code2, mainCode)
+                    if code2 == 200 and mainCode and trim(mainCode) ~= "" then
+                        mainHandler.post(Runnable({
+                            run = function()
+                                local updateAlertDlg = LuaDialog(context)
+                                updateAlertDlg.setTitle("Update Available!")
+                                updateAlertDlg.setMessage("A new version (" .. onlineVersion .. ") is available.\nCurrent version: " .. CURRENT_VERSION .. "\n\nWould you like to update now?")
+                                updateAlertDlg.setButton("Update Now", function()
+                                    updateAlertDlg.dismiss()
+                                    performUpdate(mainCode, onlineVersion)
+                                end)
+                                updateAlertDlg.setButton2("Later", function()
+                                    updateAlertDlg.dismiss()
+                                end)
+                                updateAlertDlg.show()
+                            end
+                        }))
+                    end
+                end)
+            end
+        end
+    end)
+end
+
+function performUpdate(mainCode, onlineVersion)
+    if not mainCode or trim(mainCode) == "" then
+        showUpdateErrorDialog("Update Failed", "Main plugin code is empty.")
+        return
+    end
+    
+    updateInProgress = true
+    
+    local function updateProcess()
+        local success = false
+        local tempPath = PLUGIN_PATH .. ".temp_update"
+        local f = io.open(tempPath, "w")
+        if f then
+            f:write(mainCode)
+            f:close()
+            
+            local fileExists = io.open(PLUGIN_PATH, "r")
+            if fileExists then
+                fileExists:close()
+                local delSuccess = pcall(function()
+                    os.remove(PLUGIN_PATH)
+                end)
+                if delSuccess then
+                    local renameSuccess = pcall(function()
+                        os.rename(tempPath, PLUGIN_PATH)
+                    end)
+                    if renameSuccess then
+                        success = true
+                    end
+                end
+            else
+                local renameSuccess = pcall(function()
+                    os.rename(tempPath, PLUGIN_PATH)
+                end)
+                if renameSuccess then
+                    success = true
+                end
+            end
+            
+            if not success then
+                pcall(function() os.remove(tempPath) end)
+            end
+        end
+        
+        if success then
+            updateInProgress = false
+            mainHandler.post(Runnable({
+                run = function()
+                    local successDialog = LuaDialog(context)
+                    successDialog.setTitle("Update Successful")
+                    successDialog.setMessage("Plugin successfully updated to version " .. onlineVersion .. ".\n\nPlugin will restart automatically.")
+                    successDialog.setButton("OK", function()
+                        successDialog.dismiss()
+                        if mainDialog then
+                            mainDialog.dismiss()
+                        end
+                        mainHandler.postDelayed(Runnable({
+                            run = function()
+                                local pluginFile = io.open(PLUGIN_PATH, "r")
+                                if pluginFile then
+                                    pluginFile:close()
+                                    local func, err = loadfile(PLUGIN_PATH)
+                                    if func then
+                                        pcall(func)
+                                    else
+                                        showToast("Error reloading plugin: " .. tostring(err))
+                                    end
+                                end
+                            end
+                        }), 2000)
+                    end)
+                    successDialog.show()
+                end
+            }))
+            return
+        else
+            updateInProgress = false
+            showUpdateErrorDialog("Update Failed", "Update failed. Please try again.")
+        end
+    end
+    
+    local updateThread = Thread(luajava.bindClass("java.lang.Runnable"){
+        run = updateProcess
+    })
+    updateThread.start()
+end
 
 function initTTS()
     if tts == nil then
@@ -779,7 +928,7 @@ function aboutAndSupport()
         layout_height = "wrap";
         {
             TextView;
-            text = "Google Gemini Text to Speech Plugin - Generate high quality WAV audio from text using Google Gemini AI.\n\nFeatures: 24+ natural voices, " .. CHUNK_SIZE .. " character chunk processing (adjustable), automatic retry on rate limit, direct download to device, and WAV format output at 24kHz sample rate.\n\nDeveloper: Ranamuhammadsikandarhayat";
+            text = "Google Gemini Text to Speech Plugin - Generate high quality WAV audio from text using Google Gemini AI.\n\nFeatures: 24+ natural voices, " .. CHUNK_SIZE .. " character chunk processing (adjustable), automatic retry on rate limit, direct download to device, and WAV format output at 24kHz sample rate.\n\nVersion: " .. CURRENT_VERSION .. "\n\nDeveloper: Ranamuhammadsikandarhayat";
             textSize = 14;
             textColor = "#666666";
             gravity = "left";
@@ -952,8 +1101,8 @@ function showMain()
             },
             {
                 TextView,
-                text = "Developer: Ranamuhammadsikandarhayat",
-                textSize = 14,
+                text = "Developer: Ranamuhammadsikandarhayat  |  v" .. CURRENT_VERSION,
+                textSize = 12,
                 textColor = "#666666",
                 gravity = "center",
                 paddingBottom = "25dp"
@@ -1235,6 +1384,13 @@ function showMain()
     
     dlg.show()
 end
+
+Thread(luajava.bindClass("java.lang.Runnable"){
+    run = function()
+        Thread.sleep(3000)
+        checkUpdate()
+    end
+}).start()
 
 loadSettings()
 if googleApiKey == "" then
