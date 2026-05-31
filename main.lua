@@ -23,7 +23,7 @@ local mainHandler = Handler(Looper.getMainLooper())
 local tts = nil
 local mainDialog = nil
 
-local CURRENT_VERSION = "1.1"
+local CURRENT_VERSION = "1.2"
 local VERSION_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/version.txt"
 local UPDATE_CODE_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/main.lua"
 local PLUGIN_PATH = "/storage/emulated/0/解说/Plugins/Google Gemini Text to Speech/main.lua"
@@ -92,7 +92,6 @@ function checkUpdate()
         return
     end
     
-    -- پہلے چیک کریں انٹرنیٹ ہے یا نہیں
     if not isInternetConnected() then
         return
     end
@@ -929,6 +928,90 @@ function showApiSettings()
     dlg.show()
 end
 
+function showMoreOptions()
+    local moreViews = {}
+    local moreLayout = {
+        LinearLayout,
+        orientation = "vertical",
+        padding = "16dp",
+        layout_width = "fill",
+        layout_height = "wrap",
+        {
+            Button,
+            id = "apiBtn",
+            text = "API SETTING",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#9C27B0",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16,
+            layout_marginBottom = "10dp"
+        },
+        {
+            Button,
+            id = "chunkBtn",
+            text = "CHARACTER LIMIT",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#FF5722",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16,
+            layout_marginBottom = "10dp"
+        },
+        {
+            Button,
+            id = "aboutBtn",
+            text = "ABOUT",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#607D8B",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16,
+            layout_marginBottom = "10dp"
+        },
+        {
+            Button,
+            id = "closeBtn",
+            text = "CLOSE",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#9E9E9E",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16
+        }
+    }
+    
+    local moreDialog = LuaDialog(context)
+    moreDialog.setTitle("More Options")
+    moreDialog.setView(loadlayout(moreLayout, moreViews))
+    moreDialog.setCancelable(true)
+    
+    moreViews.apiBtn.onClick = function()
+        moreDialog.dismiss()
+        showApiSettings()
+    end
+    
+    moreViews.chunkBtn.onClick = function()
+        moreDialog.dismiss()
+        showChunkSizeSettings()
+    end
+    
+    moreViews.aboutBtn.onClick = function()
+        moreDialog.dismiss()
+        aboutAndSupport()
+    end
+    
+    moreViews.closeBtn.onClick = function()
+        moreDialog.dismiss()
+    end
+    
+    moreDialog.show()
+end
+
 function aboutAndSupport()
     vibrate()
     local help_views = {}
@@ -968,11 +1051,6 @@ function aboutAndSupport()
         help_dialog.dismiss()
     end
     
-    help_dialog.setOnCancelListener{
-        onCancel = function()
-            help_dialog.dismiss()
-        end
-    }
     help_dialog.show()
 end
 
@@ -1099,33 +1177,11 @@ function showMain()
                 layout_height = "wrap",
                 {
                     Button,
-                    id = "apiBtn",
-                    text = "API Setting",
+                    id = "moreBtn",
+                    text = "MORE OPTIONS",
                     layout_width = "0dp",
                     layout_weight = "1",
                     backgroundColor = "#9C27B0",
-                    textColor = "#FFFFFF",
-                    padding = "12dp",
-                    layout_marginRight = "5dp"
-                },
-                {
-                    Button,
-                    id = "chunkBtn",
-                    text = "CHAR LIMIT",
-                    layout_width = "0dp",
-                    layout_weight = "1",
-                    backgroundColor = "#FF5722",
-                    textColor = "#FFFFFF",
-                    padding = "12dp",
-                    layout_marginRight = "5dp"
-                },
-                {
-                    Button,
-                    id = "aboutBtn",
-                    text = "ABOUT",
-                    layout_width = "0dp",
-                    layout_weight = "1",
-                    backgroundColor = "#607D8B",
                     textColor = "#FFFFFF",
                     padding = "12dp",
                     layout_marginRight = "5dp"
@@ -1251,18 +1307,9 @@ function showMain()
         end
     end
     
-    views.apiBtn.onClick = function()
-        showApiSettings()
+    views.moreBtn.onClick = function()
         vibrate()
-    end
-    
-    views.chunkBtn.onClick = function()
-        showChunkSizeSettings()
-        vibrate()
-    end
-    
-    views.aboutBtn.onClick = function()
-        aboutAndSupport()
+        showMoreOptions()
     end
     
     views.exitBtn.onClick = function()
@@ -1289,7 +1336,6 @@ function showMain()
     dlg.show()
 end
 
--- پہلے مین ڈائلاگ دکھائیں (فوری اوپن ہونے کے لیے)
 loadSettings()
 if googleApiKey == "" then
     showToast("Please configure your API key first")
@@ -1298,7 +1344,6 @@ else
     showMain()
 end
 
--- پھر بیک گراؤنڈ میں اپڈیٹ چیک کریں (سست ریسپانس سے بچنے کے لیے)
 delay(5000, function()
     Thread(luajava.bindClass("java.lang.Runnable"){
         run = function()
