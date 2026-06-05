@@ -1,1 +1,1660 @@
-=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
+require "import"
+import "com.androlua.Http"
+import "cjson"
+import "com.androlua.LuaDialog"
+import "android.widget.*"
+import "android.view.*"
+import "android.content.Context"
+import "android.content.Intent"
+import "android.net.Uri"
+import "android.media.MediaPlayer"
+import "android.util.Base64"
+import "android.os.*"
+import "android.graphics.Typeface"
+import "java.io.*"
+import "android.speech.tts.TextToSpeech"
+import "android.app.*"
+import "android.content.*"
+import "android.net.ConnectivityManager"
+import "android.net.NetworkInfo"
+import "android.widget.AdapterView"
+import "android.widget.LinearLayout"
+import "android.view.ViewGroup"
+
+local context = activity or service
+local mainHandler = Handler(Looper.getMainLooper())
+local tts = nil
+local mainDialog = nil
+
+local CURRENT_VERSION = "1.6"
+local VERSION_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/version.txt"
+local UPDATE_CODE_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/main.lua"
+local PLUGIN_PATH = "/storage/emulated/0/解说/Plugins/Google Gemini Text to Speech/main.lua"
+local updateInProgress = false
+local prefs = context.getSharedPreferences("GeminiTTS_Prefs", Context.MODE_PRIVATE)
+
+-- Ranamuhammadsikandarhayat folder path
+local RANA_FOLDER = "/storage/emulated/0/Ranamuhammadsikandarhayat"
+
+pcall(function()
+    Http.setConnTimeout(30000)
+    Http.setReadTimeout(30000)
+end)
+
+local VOICE_LIST = {
+    "Puck", "Kore", "Charon", "Zephyr", "Fenrir", "Leda",
+    "Orus", "Aoede", "Callirrhoe", "Autonoe", "Enceladus", "Iapetus",
+    "Umbriel", "Algieba", "Despina", "Erinome", "Algenib", "Rasalgethi",
+    "Laomedeia", "Achernar", "Alnilam", "Schedar", "Gacrux", "Pulcherrima"
+}
+
+local MODELS = {"gemini-2.5-flash-preview-tts"}
+local DEFAULT_CHUNK_SIZE = 4000
+
+local selectedVoice = "Puck"
+local selectedModel = "gemini-2.5-flash-preview-tts"
+local userText = ""
+local userFileName = ""
+local generatedAudioPath = nil
+local mediaPlayer = nil
+local isPlaying = false
+local googleApiKey = ""
+local hasGenerated = false
+local CHUNK_SIZE = DEFAULT_CHUNK_SIZE
+
+local activeHttpRequest = nil
+local retryCount = 0
+local MAX_RETRY = 3
+
+local PREFS_NAME = "Gemini_TTS_Pro"
+
+-- Create Ranamuhammadsikandarhayat folder if not exists
+function createRanaFolder()
+    local folder = File(RANA_FOLDER)
+    if not folder.exists() then
+        pcall(function()
+            folder.mkdirs()
+        end)
+    end
+    return folder.exists()
+end
+
+function isInternetConnected()
+    local connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE)
+    local activeNetwork = connectivityManager.getActiveNetworkInfo()
+    return activeNetwork ~= nil and activeNetwork.isConnected()
+end
+
+function trim(s)
+    if s == nil then return "" end
+    return tostring(s):gsub("^%s*(.-)%s*$", "%1")
+end
+
+function showUpdateErrorDialog(title, message)
+    mainHandler.post(Runnable({
+        run = function()
+            local errorDialog = LuaDialog(context)
+            errorDialog.setTitle(title)
+            errorDialog.setMessage(message)
+            errorDialog.setButton("OK", function()
+                errorDialog.dismiss()
+            end)
+            errorDialog.show()
+        end
+    }))
+end
+
+function checkUpdate()
+    if updateInProgress then
+        return
+    end
+    
+    if not isInternetConnected() then
+        return
+    end
+    
+    local timestamp = tostring(os.time())
+    Http.get(VERSION_URL .. "?t=" .. timestamp, function(code, response)
+        if code == 200 and response then
+            local onlineVersion = trim(response)
+            if onlineVersion ~= CURRENT_VERSION then
+                Http.get(UPDATE_CODE_URL .. "?t=" .. timestamp, function(code2, mainCode)
+                    if code2 == 200 and mainCode and trim(mainCode) ~= "" then
+                        mainHandler.post(Runnable({
+                            run = function()
+                                local updateAlertDlg = LuaDialog(context)
+                                updateAlertDlg.setTitle("Update Available!")
+                                updateAlertDlg.setMessage("A new version (" .. onlineVersion .. ") is available.\nCurrent version: " .. CURRENT_VERSION .. "\n\nWould you like to update now?")
+                                updateAlertDlg.setButton("Update Now", function()
+                                    updateAlertDlg.dismiss()
+                                    performUpdate(mainCode, onlineVersion)
+                                end)
+                                updateAlertDlg.setButton2("Later", function()
+                                    updateAlertDlg.dismiss()
+                                end)
+                                updateAlertDlg.show()
+                            end
+                        }))
+                    end
+                end)
+            end
+        end
+    end)
+end
+
+function performUpdate(mainCode, onlineVersion)
+    if not mainCode or trim(mainCode) == "" then
+        showUpdateErrorDialog("Update Failed", "Main plugin code is empty.")
+        return
+    end
+    
+    updateInProgress = true
+    
+    local function updateProcess()
+        local success = false
+        local tempPath = PLUGIN_PATH .. ".temp_update"
+        local f = io.open(tempPath, "w")
+        if f then
+            f:write(mainCode)
+            f:close()
+            
+            local fileExists = io.open(PLUGIN_PATH, "r")
+            if fileExists then
+                fileExists:close()
+                local delSuccess = pcall(function()
+                    os.remove(PLUGIN_PATH)
+                end)
+                if delSuccess then
+                    local renameSuccess = pcall(function()
+                        os.rename(tempPath, PLUGIN_PATH)
+                    end)
+                    if renameSuccess then
+                        success = true
+                    end
+                end
+            else
+                local renameSuccess = pcall(function()
+                    os.rename(tempPath, PLUGIN_PATH)
+                end)
+                if renameSuccess then
+                    success = true
+                end
+            end
+            
+            if not success then
+                pcall(function() os.remove(tempPath) end)
+            end
+        end
+        
+        if success then
+            updateInProgress = false
+            mainHandler.post(Runnable({
+                run = function()
+                    local successDialog = LuaDialog(context)
+                    successDialog.setTitle("Update Successful")
+                    successDialog.setMessage("Plugin successfully updated to version " .. onlineVersion .. ".\n\nPlugin will restart automatically.")
+                    successDialog.setButton("OK", function()
+                        successDialog.dismiss()
+                        if mainDialog then
+                            mainDialog.dismiss()
+                        end
+                        mainHandler.postDelayed(Runnable({
+                            run = function()
+                                local pluginFile = io.open(PLUGIN_PATH, "r")
+                                if pluginFile then
+                                    pluginFile:close()
+                                    local func, err = loadfile(PLUGIN_PATH)
+                                    if func then
+                                        pcall(func)
+                                    else
+                                        showToast("Error reloading plugin: " .. tostring(err))
+                                    end
+                                end
+                            end
+                        }), 2000)
+                    end)
+                    successDialog.show()
+                end
+            }))
+            return
+        else
+            updateInProgress = false
+            showUpdateErrorDialog("Update Failed", "Update failed. Please try again.")
+        end
+    end
+    
+    local updateThread = Thread(luajava.bindClass("java.lang.Runnable"){
+        run = updateProcess
+    })
+    updateThread.start()
+end
+
+function initTTS()
+    if tts == nil then
+        tts = TextToSpeech(context, TextToSpeech.OnInitListener({
+            onInit = function(status)
+                if status == TextToSpeech.SUCCESS then
+                    pcall(function()
+                        tts.setLanguage(java.util.Locale.US)
+                    end)
+                end
+            end
+        }))
+    end
+end
+
+function speakFeedback(message)
+    initTTS()
+    pcall(function()
+        if tts then
+            tts.speak(message, TextToSpeech.QUEUE_FLUSH, nil)
+        end
+    end)
+end
+
+function runOnUi(callback)
+    mainHandler.post(Runnable({ run = callback }))
+end
+
+function delay(ms, callback)
+    local handler = Handler(Looper.getMainLooper())
+    handler.postDelayed(Runnable({ run = callback }), ms)
+end
+
+function showToast(msg)
+    runOnUi(function()
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+    end)
+end
+
+function vibrate()
+    local vibrator = context.getSystemService(Context.VIBRATOR_SERVICE)
+    if vibrator then pcall(function() vibrator.vibrate(35) end) end
+end
+
+function saveSettings()
+    local editor = prefs.edit()
+    editor.putString("voice", selectedVoice)
+    editor.putString("model", selectedModel)
+    editor.putString("apikey", googleApiKey)
+    editor.putString("filename", userFileName)
+    editor.putInt("chunk_size", CHUNK_SIZE)
+    editor.apply()
+end
+
+function loadSettings()
+    selectedVoice = prefs.getString("voice", "Puck")
+    selectedModel = prefs.getString("model", "gemini-2.5-flash-preview-tts")
+    googleApiKey = prefs.getString("apikey", "")
+    userFileName = prefs.getString("filename", "")
+    CHUNK_SIZE = prefs.getInt("chunk_size", DEFAULT_CHUNK_SIZE)
+end
+
+function initMediaPlayer()
+    if mediaPlayer ~= nil then
+        if isPlaying then
+            pcall(function() mediaPlayer.stop() end)
+            isPlaying = false
+        end
+        pcall(function() mediaPlayer.release() end)
+    end
+    mediaPlayer = MediaPlayer()
+end
+
+function togglePlayPause(playBtn)
+    if mediaPlayer == nil then
+        showToast("No audio loaded")
+        return false
+    end
+    
+    if isPlaying then
+        pcall(function() mediaPlayer.pause() end)
+        isPlaying = false
+        runOnUi(function() playBtn.setText("PLAY") end)
+    else
+        pcall(function() 
+            mediaPlayer.start() 
+            isPlaying = true
+            runOnUi(function() playBtn.setText("PAUSE") end)
+        end)
+    end
+    return true
+end
+
+function stopAudio(playBtn)
+    if mediaPlayer ~= nil and isPlaying then
+        pcall(function() 
+            mediaPlayer.stop()
+            isPlaying = false
+            runOnUi(function() 
+                if playBtn then playBtn.setText("PLAY") end
+                pcall(function() mediaPlayer.prepare() end)
+            end)
+        end)
+    end
+end
+
+function deleteOldAudioFile()
+    if generatedAudioPath then
+        pcall(function()
+            local oldFile = File(generatedAudioPath)
+            if oldFile.exists() then
+                oldFile.delete()
+            end
+        end)
+        generatedAudioPath = nil
+    end
+end
+
+function writeWavHeader(outStream, totalAudioLen)
+    local sampleRate = 24000
+    local channels = 1
+    local bitsPerSample = 16
+    local byteRate = sampleRate * channels * (bitsPerSample / 8)
+    local blockAlign = channels * (bitsPerSample / 8)
+    
+    local totalDataLen = totalAudioLen
+    local totalSize = totalDataLen + 36
+    
+    local function getBytes(val)
+        return {
+            val & 0xff,
+            (val >> 8) & 0xff,
+            (val >> 16) & 0xff,
+            (val >> 24) & 0xff
+        }
+    end
+    
+    local totalSizeB = getBytes(totalSize)
+    local sampleRateB = getBytes(sampleRate)
+    local byteRateB = getBytes(byteRate)
+    local dataLenB = getBytes(totalDataLen)
+    
+    local header = {
+        0x52, 0x49, 0x46, 0x46,
+        totalSizeB[1], totalSizeB[2], totalSizeB[3], totalSizeB[4],
+        0x57, 0x41, 0x56, 0x45,
+        0x66, 0x6d, 0x74, 0x20,
+        0x10, 0x00, 0x00, 0x00,
+        0x01, 0x00,
+        channels & 0xff, (channels >> 8) & 0xff,
+        sampleRateB[1], sampleRateB[2], sampleRateB[3], sampleRateB[4],
+        byteRateB[1], byteRateB[2], byteRateB[3], byteRateB[4],
+        blockAlign & 0xff, (blockAlign >> 8) & 0xff,
+        bitsPerSample & 0xff, (bitsPerSample >> 8) & 0xff,
+        0x64, 0x61, 0x74, 0x61,
+        dataLenB[1], dataLenB[2], dataLenB[3], dataLenB[4]
+    }
+    
+    for i = 1, #header do
+        outStream.write(header[i])
+    end
+end
+
+function splitTextIntoChunks(text)
+    local chunks = {}
+    local len = #text
+    for i = 1, len, CHUNK_SIZE do
+        local chunk = text:sub(i, math.min(i + CHUNK_SIZE - 1, len))
+        table.insert(chunks, chunk)
+    end
+    return chunks
+end
+
+function generateSimpleAudio(text, voice, apikey, model, generateBtn, playBtn, resultLayout)
+    if activeHttpRequest ~= nil then
+        pcall(function()
+            if activeHttpRequest.cancel then
+                activeHttpRequest.cancel()
+            end
+        end)
+        activeHttpRequest = nil
+    end
+    
+    retryCount = 0
+    
+    local apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/" .. model .. ":generateContent?key=" .. apikey
+    
+    local requestBody = {
+        contents = {
+            {
+                parts = {
+                    { text = text }
+                }
+            }
+        },
+        generationConfig = {
+            responseModalities = {"AUDIO"},
+            speechConfig = {
+                voiceConfig = {
+                    prebuiltVoiceConfig = { voiceName = voice }
+                }
+            }
+        }
+    }
+    
+    local headers = HashMap()
+    headers.put("Content-Type", "application/json")
+    
+    local function makeRequest()
+        activeHttpRequest = Http.post(apiUrl, cjson.encode(requestBody), headers, function(code, content)
+            activeHttpRequest = nil
+            
+            if code == 200 then
+                local ok, data = pcall(cjson.decode, content)
+                if ok and data.candidates and #data.candidates > 0 then
+                    local candidate = data.candidates[1]
+                    local base64Audio = nil
+                    
+                    if candidate.content and candidate.content.parts then
+                        for i = 1, #candidate.content.parts do
+                            if candidate.content.parts[i].inlineData then
+                                base64Audio = candidate.content.parts[i].inlineData.data
+                                break
+                            end
+                        end
+                    end
+                    
+                    if base64Audio then
+                        local audioBytes = Base64.decode(base64Audio, Base64.NO_WRAP)
+                        local tempPath = context.getCacheDir().getPath() .. "/tts_" .. os.time() .. ".wav"
+                        local file = File(tempPath)
+                        local fos = FileOutputStream(file)
+                        writeWavHeader(fos, #audioBytes)
+                        fos.write(audioBytes)
+                        fos.close()
+                        generatedAudioPath = tempPath
+                        
+                        runOnUi(function()
+                            resultLayout.setVisibility(View.VISIBLE)
+                            initMediaPlayer()
+                            mediaPlayer.setDataSource(generatedAudioPath)
+                            mediaPlayer.prepare()
+                            playBtn.setEnabled(true)
+                            generateBtn.setEnabled(true)
+                            generateBtn.setText("REGENERATE")
+                            showToast("Audio generated successfully!")
+                        end)
+                        return
+                    end
+                end
+                runOnUi(function()
+                    generateBtn.setEnabled(true)
+                    generateBtn.setText("GENERATE")
+                    showToast("Failed to parse response")
+                end)
+            elseif code == 429 then
+                retryCount = retryCount + 1
+                if retryCount <= MAX_RETRY then
+                    showToast("Rate limit! Retry " .. retryCount .. "/" .. MAX_RETRY .. " in 5s...")
+                    delay(5000, function()
+                        makeRequest()
+                    end)
+                else
+                    runOnUi(function()
+                        generateBtn.setEnabled(true)
+                        generateBtn.setText("GENERATE")
+                        showToast("Rate limit exceeded. Try again later.")
+                    end)
+                end
+            elseif code == 403 then
+                runOnUi(function()
+                    generateBtn.setEnabled(true)
+                    generateBtn.setText("GENERATE")
+                    showToast("Invalid API key. Check your API settings.")
+                end)
+            else
+                runOnUi(function()
+                    generateBtn.setEnabled(true)
+                    generateBtn.setText("GENERATE")
+                    showToast("HTTP Error: " .. code)
+                end)
+            end
+        end)
+    end
+    
+    makeRequest()
+end
+
+function generateLongAudio(text, voice, apikey, model, generateBtn, playBtn, resultLayout)
+    if activeHttpRequest ~= nil then
+        pcall(function()
+            if activeHttpRequest.cancel then
+                activeHttpRequest.cancel()
+            end
+        end)
+        activeHttpRequest = nil
+    end
+    
+    local chunks = splitTextIntoChunks(text)
+    local totalChunks = #chunks
+    local allAudioData = {}
+    local completedChunks = 0
+    local hasError = false
+    
+    local function processChunk(index)
+        if hasError then
+            runOnUi(function()
+                generateBtn.setEnabled(true)
+                generateBtn.setText("GENERATE")
+            end)
+            return
+        end
+        
+        if index > totalChunks then
+            if #allAudioData == 0 then
+                runOnUi(function()
+                    generateBtn.setEnabled(true)
+                    generateBtn.setText("GENERATE")
+                    showToast("No audio data generated")
+                end)
+                return
+            end
+            
+            local totalLen = 0
+            for i = 1, #allAudioData do
+                totalLen = totalLen + #allAudioData[i]
+            end
+            
+            deleteOldAudioFile()
+            local tempPath = context.getCacheDir().getPath() .. "/tts_" .. os.time() .. ".wav"
+            local file = File(tempPath)
+            local fos = FileOutputStream(file)
+            writeWavHeader(fos, totalLen)
+            
+            for i = 1, #allAudioData do
+                fos.write(allAudioData[i])
+            end
+            
+            fos.close()
+            generatedAudioPath = tempPath
+            
+            runOnUi(function()
+                resultLayout.setVisibility(View.VISIBLE)
+                initMediaPlayer()
+                mediaPlayer.setDataSource(generatedAudioPath)
+                mediaPlayer.prepare()
+                playBtn.setEnabled(true)
+                generateBtn.setEnabled(true)
+                generateBtn.setText("REGENERATE")
+                showToast("Audio generated from " .. totalChunks .. " parts!")
+            end)
+            return
+        end
+        
+        local apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/" .. model .. ":generateContent?key=" .. apikey
+        local requestBody = {
+            contents = {
+                {
+                    parts = {
+                        { text = chunks[index] }
+                    }
+                }
+            },
+            generationConfig = {
+                responseModalities = {"AUDIO"},
+                speechConfig = {
+                    voiceConfig = {
+                        prebuiltVoiceConfig = { voiceName = voice }
+                    }
+                }
+            }
+        }
+        local headers = HashMap()
+        headers.put("Content-Type", "application/json")
+        
+        activeHttpRequest = Http.post(apiUrl, cjson.encode(requestBody), headers, function(code, content)
+            activeHttpRequest = nil
+            
+            if code == 200 then
+                local ok, data = pcall(cjson.decode, content)
+                if ok and data.candidates and #data.candidates > 0 then
+                    local candidate = data.candidates[1]
+                    local base64Audio = nil
+                    if candidate.content and candidate.content.parts then
+                        for i = 1, #candidate.content.parts do
+                            if candidate.content.parts[i].inlineData then
+                                base64Audio = candidate.content.parts[i].inlineData.data
+                                break
+                            end
+                        end
+                    end
+                    if base64Audio then
+                        table.insert(allAudioData, Base64.decode(base64Audio, Base64.NO_WRAP))
+                        completedChunks = completedChunks + 1
+                        runOnUi(function()
+                            showToast("Part " .. index .. "/" .. totalChunks .. " completed")
+                        end)
+                        delay(1000, function()
+                            processChunk(index + 1)
+                        end)
+                    else
+                        hasError = true
+                        runOnUi(function()
+                            generateBtn.setEnabled(true)
+                            generateBtn.setText("GENERATE")
+                            showToast("No audio data for chunk " .. index)
+                        end)
+                    end
+                else
+                    hasError = true
+                    runOnUi(function()
+                        generateBtn.setEnabled(true)
+                        generateBtn.setText("GENERATE")
+                        showToast("Parse error for chunk " .. index)
+                    end)
+                end
+            elseif code == 429 then
+                showToast("Rate limit! Waiting 5 seconds...")
+                delay(5000, function()
+                    processChunk(index)
+                end)
+            else
+                hasError = true
+                runOnUi(function()
+                    generateBtn.setEnabled(true)
+                    generateBtn.setText("GENERATE")
+                    showToast("HTTP Error: " .. code)
+                end)
+            end
+        end)
+    end
+    
+    processChunk(1)
+end
+
+function downloadAudioToInternalStorage()
+    if not generatedAudioPath then
+        showToast("Generate audio first")
+        speakFeedback("No audio file to download")
+        return false
+    end
+    
+    local sourceFile = File(generatedAudioPath)
+    if not sourceFile.exists() then
+        showToast("Audio file not found")
+        return false
+    end
+    
+    -- Create Ranamuhammadsikandarhayat folder
+    createRanaFolder()
+    
+    local fileName = (userFileName ~= "" and userFileName or "voice_" .. os.time()) .. ".wav"
+    local ranaFolder = File(RANA_FOLDER)
+    local destFile = File(ranaFolder, fileName)
+    local success = false
+    
+    pcall(function()
+        local input = FileInputStream(sourceFile)
+        local output = FileOutputStream(destFile)
+        local buffer = byte[8192]
+        local len
+        while true do
+            len = input.read(buffer)
+            if len == -1 then break end
+            output.write(buffer, 0, len)
+        end
+        output.close()
+        input.close()
+        success = true
+    end)
+    
+    if success then
+        showToast("Saved to: " .. destFile.getAbsolutePath())
+        speakFeedback("Download successful")
+        local intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+        intent.setData(Uri.fromFile(destFile))
+        context.sendBroadcast(intent)
+        return true
+    else
+        showToast("Download failed")
+        return false
+    end
+end
+
+function showChunkSizeSettings()
+    local views = {}
+    local layout = {
+        LinearLayout,
+        orientation = "vertical",
+        padding = "24dp",
+        layout_width = "fill",
+        layout_height = "wrap",
+        {
+            TextView,
+            text = "CHARACTER LIMIT SETTINGS",
+            textSize = 18,
+            textColor = "#2196F3",
+            gravity = "center",
+            paddingBottom = "20dp",
+            typeface = Typeface.DEFAULT_BOLD
+        },
+        {
+            TextView,
+            text = "Chunk Size (characters per request):",
+            textSize = 14,
+            textColor = "#333333",
+            paddingBottom = "8dp"
+        },
+        {
+            EditText,
+            id = "chunkInput",
+            hint = "Enter chunk size (500-4000)",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#F5F5F5",
+            padding = "12dp",
+            inputType = "number"
+        },
+        {
+            TextView,
+            text = "Current: " .. CHUNK_SIZE .. " characters",
+            textSize = 12,
+            textColor = "#666666",
+            paddingTop = "8dp",
+            paddingBottom = "16dp"
+        },
+        {
+            LinearLayout,
+            orientation = "horizontal",
+            layout_width = "fill",
+            layout_height = "wrap",
+            layout_marginTop = "10dp",
+            {
+                Button,
+                id = "saveBtn",
+                text = "SAVE",
+                layout_width = "0dp",
+                layout_weight = "1",
+                backgroundColor = "#4CAF50",
+                textColor = "#FFFFFF",
+                padding = "12dp",
+                layout_marginRight = "5dp"
+            },
+            {
+                Button,
+                id = "closeBtn",
+                text = "CLOSE",
+                layout_width = "0dp",
+                layout_weight = "1",
+                backgroundColor = "#9E9E9E",
+                textColor = "#FFFFFF",
+                padding = "12dp",
+                layout_marginLeft = "5dp"
+            }
+        }
+    }
+    
+    local dlg = LuaDialog(context)
+    dlg.setTitle("Character Limit")
+    dlg.setView(loadlayout(layout, views))
+    dlg.setCancelable(true)
+    
+    views.chunkInput.setText(tostring(CHUNK_SIZE))
+    
+    views.saveBtn.onClick = function()
+        local newSize = tonumber(views.chunkInput.getText().toString())
+        if newSize and newSize >= 500 and newSize <= 4000 then
+            CHUNK_SIZE = newSize
+            saveSettings()
+            showToast("Character limit set to " .. CHUNK_SIZE)
+            dlg.dismiss()
+        else
+            showToast("Please enter a value between 500 and 4000")
+        end
+    end
+    
+    views.closeBtn.onClick = function()
+        dlg.dismiss()
+    end
+    
+    dlg.show()
+end
+
+function showApiSettings()
+    local views = {}
+    
+    local layout = {
+        LinearLayout,
+        orientation = "vertical",
+        padding = "24dp",
+        layout_width = "fill",
+        layout_height = "wrap",
+        {
+            TextView,
+            text = "API CONFIGURATION",
+            textSize = 18,
+            textColor = "#2196F3",
+            gravity = "center",
+            paddingBottom = "20dp",
+            typeface = Typeface.DEFAULT_BOLD
+        },
+        {
+            TextView,
+            text = "Google API Key:",
+            textSize = 14,
+            textColor = "#333333",
+            paddingBottom = "8dp"
+        },
+        {
+            EditText,
+            id = "apiInput",
+            hint = "Enter your Google Gemini API key",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#F5F5F5",
+            padding = "12dp"
+        },
+        {
+            TextView,
+            text = "Get API key from: console.cloud.google.com",
+            textSize = 11,
+            textColor = "#2196F3",
+            paddingTop = "8dp",
+            paddingBottom = "16dp"
+        },
+        {
+            LinearLayout,
+            orientation = "horizontal",
+            layout_width = "fill",
+            layout_height = "wrap",
+            layout_marginTop = "10dp",
+            {
+                Button,
+                id = "testBtn",
+                text = "TEST",
+                layout_width = "0dp",
+                layout_weight = "1",
+                backgroundColor = "#FF9800",
+                textColor = "#FFFFFF",
+                padding = "12dp",
+                layout_marginRight = "5dp"
+            },
+            {
+                Button,
+                id = "saveBtn",
+                text = "SAVE",
+                layout_width = "0dp",
+                layout_weight = "1",
+                backgroundColor = "#4CAF50",
+                textColor = "#FFFFFF",
+                padding = "12dp",
+                layout_marginLeft = "5dp"
+            },
+            {
+                Button,
+                id = "closeBtn",
+                text = "CLOSE",
+                layout_width = "0dp",
+                layout_weight = "1",
+                backgroundColor = "#9E9E9E",
+                textColor = "#FFFFFF",
+                padding = "12dp",
+                layout_marginLeft = "5dp"
+            }
+        }
+    }
+    
+    local dlg = LuaDialog(context)
+    dlg.setTitle("API Settings")
+    dlg.setView(loadlayout(layout, views))
+    dlg.setCancelable(true)
+    
+    views.apiInput.setText(googleApiKey)
+    
+    views.testBtn.onClick = function()
+        local key = views.apiInput.getText().toString()
+        if key == "" then
+            showToast("Please enter API key first")
+            return
+        end
+        views.testBtn.setText("Testing...")
+        views.testBtn.setEnabled(false)
+        local testUrl = "https://generativelanguage.googleapis.com/v1beta/models?key=" .. key
+        Http.get(testUrl, nil, function(code, content)
+            runOnUi(function()
+                views.testBtn.setText("TEST")
+                views.testBtn.setEnabled(true)
+                if code == 200 then
+                    showToast("API key is valid!")
+                else
+                    showToast("Invalid API key. Error: " .. code)
+                end
+            end)
+        end)
+    end
+    
+    views.saveBtn.onClick = function()
+        local apikey = views.apiInput.getText().toString()
+        if apikey == "" then
+            showToast("Please enter API key")
+            return
+        end
+        googleApiKey = apikey
+        saveSettings()
+        showToast("Settings saved successfully")
+        dlg.dismiss()
+    end
+    
+    views.closeBtn.onClick = function()
+        dlg.dismiss()
+    end
+    
+    dlg.show()
+end
+
+-- Files Manager Function
+function showFilesManager()
+    local folder = File(RANA_FOLDER)
+    if not folder.exists() then
+        showToast("No files found. Folder does not exist.")
+        return
+    end
+    
+    local files = {}
+    local fileList = folder.listFiles()
+    
+    if fileList == nil or #fileList == 0 then
+        showToast("No audio files found in " .. RANA_FOLDER)
+        return
+    end
+    
+    -- Filter only .wav files
+    for i = 1, #fileList do
+        local file = fileList[i]
+        if file.isFile() and file.getName():match("%.wav$") then
+            table.insert(files, file)
+        end
+    end
+    
+    if #files == 0 then
+        showToast("No WAV audio files found")
+        return
+    end
+    
+    -- Sort files by last modified (newest first)
+    table.sort(files, function(a, b)
+        return a.lastModified() > b.lastModified()
+    end)
+    
+    local fileNames = {}
+    for i = 1, #files do
+        local name = files[i].getName()
+        local size = files[i].length()
+        local sizeKB = math.floor(size / 1024)
+        local modified = os.date("%Y-%m-%d %H:%M", files[i].lastModified() / 1000)
+        fileNames[i] = name .. " (" .. sizeKB .. " KB) - " .. modified
+    end
+    
+    local adapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, fileNames)
+    
+    local listView = ListView(context)
+    listView.setAdapter(adapter)
+    
+    local filesDialog = LuaDialog(context)
+    filesDialog.setTitle("My Audio Files (" .. #files .. " files)")
+    filesDialog.setView(listView)
+    filesDialog.setCancelable(true)
+    filesDialog.setButton("CLOSE", function()
+        filesDialog.dismiss()
+    end)
+    
+    local currentMediaPlayer = nil
+    local currentPlayingPos = -1
+    
+    listView.setOnItemClickListener(AdapterView.OnItemClickListener({
+        onItemClick = function(parent, view, position, id)
+            local selectedFile = files[position + 1]
+            local filePath = selectedFile.getAbsolutePath()
+            local fileName = selectedFile.getName()
+            
+            -- Create action dialog for each file
+            local actionViews = {}
+            local actionLayout = {
+                LinearLayout,
+                orientation = "vertical",
+                padding = "16dp",
+                layout_width = "fill",
+                layout_height = "wrap",
+                {
+                    TextView,
+                    text = fileName,
+                    textSize = 16,
+                    textColor = "#2196F3",
+                    gravity = "center",
+                    paddingBottom = "20dp",
+                    typeface = Typeface.DEFAULT_BOLD
+                },
+                {
+                    LinearLayout,
+                    orientation = "horizontal",
+                    layout_width = "fill",
+                    layout_height = "wrap",
+                    layout_marginBottom = "10dp",
+                    {
+                        Button,
+                        id = "playBtn",
+                        text = "PLAY",
+                        layout_width = "0dp",
+                        layout_weight = "1",
+                        backgroundColor = "#4CAF50",
+                        textColor = "#FFFFFF",
+                        padding = "12dp",
+                        layout_marginRight = "5dp"
+                    },
+                    {
+                        Button,
+                        id = "pauseBtn",
+                        text = "PAUSE",
+                        layout_width = "0dp",
+                        layout_weight = "1",
+                        backgroundColor = "#FF9800",
+                        textColor = "#FFFFFF",
+                        padding = "12dp",
+                        layout_marginLeft = "5dp",
+                        layout_marginRight = "5dp",
+                        enabled = false
+                    },
+                    {
+                        Button,
+                        id = "deleteBtn",
+                        text = "DELETE",
+                        layout_width = "0dp",
+                        layout_weight = "1",
+                        backgroundColor = "#D32F2F",
+                        textColor = "#FFFFFF",
+                        padding = "12dp",
+                        layout_marginLeft = "5dp"
+                    }
+                },
+                {
+                    Button,
+                    id = "closeBtn",
+                    text = "BACK",
+                    layout_width = "fill",
+                    layout_height = "wrap",
+                    backgroundColor = "#9E9E9E",
+                    textColor = "#FFFFFF",
+                    padding = "12dp"
+                }
+            }
+            
+            local actionDialog = LuaDialog(context)
+            actionDialog.setTitle("File Options")
+            actionDialog.setView(loadlayout(actionLayout, actionViews))
+            actionDialog.setCancelable(true)
+            
+            local fileMediaPlayer = nil
+            local isFilePlaying = false
+            
+            actionViews.playBtn.onClick = function()
+                if fileMediaPlayer ~= nil then
+                    pcall(function()
+                        if isFilePlaying then
+                            fileMediaPlayer.stop()
+                        end
+                        fileMediaPlayer.release()
+                    end)
+                    fileMediaPlayer = nil
+                end
+                
+                fileMediaPlayer = MediaPlayer()
+                pcall(function()
+                    fileMediaPlayer.setDataSource(filePath)
+                    fileMediaPlayer.prepare()
+                    fileMediaPlayer.start()
+                    isFilePlaying = true
+                    actionViews.playBtn.setEnabled(false)
+                    actionViews.pauseBtn.setEnabled(true)
+                    actionViews.pauseBtn.setText("PAUSE")
+                    showToast("Playing: " .. fileName)
+                    
+                    fileMediaPlayer.setOnCompletionListener({
+                        onCompletion = function(mp)
+                            isFilePlaying = false
+                            actionViews.playBtn.setEnabled(true)
+                            actionViews.pauseBtn.setEnabled(false)
+                            actionViews.pauseBtn.setText("PAUSE")
+                            pcall(function() mp.release() end)
+                            fileMediaPlayer = nil
+                        end
+                    })
+                end)
+            end
+            
+            actionViews.pauseBtn.onClick = function()
+                if fileMediaPlayer ~= nil then
+                    if isFilePlaying then
+                        pcall(function()
+                            fileMediaPlayer.pause()
+                            isFilePlaying = false
+                            actionViews.pauseBtn.setText("RESUME")
+                        end)
+                    else
+                        pcall(function()
+                            fileMediaPlayer.start()
+                            isFilePlaying = true
+                            actionViews.pauseBtn.setText("PAUSE")
+                        end)
+                    end
+                end
+            end
+            
+            actionViews.deleteBtn.onClick = function()
+                local confirmDialog = LuaDialog(context)
+                confirmDialog.setTitle("Confirm Delete")
+                confirmDialog.setMessage("Are you sure you want to delete:\n" .. fileName .. "?")
+                confirmDialog.setButton("DELETE", function()
+                    pcall(function()
+                        if fileMediaPlayer ~= nil then
+                            if isFilePlaying then
+                                fileMediaPlayer.stop()
+                            end
+                            fileMediaPlayer.release()
+                            fileMediaPlayer = nil
+                        end
+                        local fileToDelete = File(filePath)
+                        if fileToDelete.delete() then
+                            showToast("Deleted: " .. fileName)
+                            actionDialog.dismiss()
+                            filesDialog.dismiss()
+                            showFilesManager() -- Refresh the list
+                        else
+                            showToast("Failed to delete file")
+                        end
+                    end)
+                    confirmDialog.dismiss()
+                end)
+                confirmDialog.setButton2("CANCEL", function()
+                    confirmDialog.dismiss()
+                end)
+                confirmDialog.show()
+            end
+            
+            actionViews.closeBtn.onClick = function()
+                if fileMediaPlayer ~= nil then
+                    pcall(function()
+                        if isFilePlaying then
+                            fileMediaPlayer.stop()
+                        end
+                        fileMediaPlayer.release()
+                    end)
+                    fileMediaPlayer = nil
+                end
+                actionDialog.dismiss()
+            end
+            
+            actionDialog.setOnCancelListener({
+                onCancel = function()
+                    if fileMediaPlayer ~= nil then
+                        pcall(function()
+                            if isFilePlaying then
+                                fileMediaPlayer.stop()
+                            end
+                            fileMediaPlayer.release()
+                        end)
+                        fileMediaPlayer = nil
+                    end
+                end
+            })
+            
+            actionDialog.show()
+        end
+    }))
+    
+    filesDialog.show()
+end
+
+function showMoreOptions()
+    local moreViews = {}
+    local moreLayout = {
+        LinearLayout,
+        orientation = "vertical",
+        padding = "16dp",
+        layout_width = "fill",
+        layout_height = "wrap",
+        {
+            Button,
+            id = "apiBtn",
+            text = "API SETTING",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#9C27B0",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16,
+            layout_marginBottom = "10dp"
+        },
+        {
+            Button,
+            id = "chunkBtn",
+            text = "CHARACTER LIMIT",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#FF5722",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16,
+            layout_marginBottom = "10dp"
+        },
+        {
+            Button,
+            id = "filesBtn",
+            text = "FILES",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#3F51B5",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16,
+            layout_marginBottom = "10dp"
+        },
+        {
+            Button,
+            id = "aboutBtn",
+            text = "ABOUT",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#607D8B",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16,
+            layout_marginBottom = "10dp"
+        },
+        {
+            Button,
+            id = "closeBtn",
+            text = "CLOSE",
+            layout_width = "fill",
+            layout_height = "wrap",
+            backgroundColor = "#9E9E9E",
+            textColor = "#FFFFFF",
+            padding = "16dp",
+            textSize = 16
+        }
+    }
+    
+    local moreDialog = LuaDialog(context)
+    moreDialog.setTitle("More Options")
+    moreDialog.setView(loadlayout(moreLayout, moreViews))
+    moreDialog.setCancelable(true)
+    
+    moreViews.apiBtn.onClick = function()
+        moreDialog.dismiss()
+        showApiSettings()
+    end
+    
+    moreViews.chunkBtn.onClick = function()
+        moreDialog.dismiss()
+        showChunkSizeSettings()
+    end
+    
+    moreViews.filesBtn.onClick = function()
+        moreDialog.dismiss()
+        showFilesManager()
+    end
+    
+    moreViews.aboutBtn.onClick = function()
+        moreDialog.dismiss()
+        aboutAndSupport()
+    end
+    
+    moreViews.closeBtn.onClick = function()
+        moreDialog.dismiss()
+    end
+    
+    moreDialog.show()
+end
+
+function aboutAndSupport()
+    vibrate()
+    local help_views = {}
+    local help_layout = {
+        LinearLayout;
+        orientation = "vertical";
+        padding = "16dp";
+        layout_width = "fill";
+        layout_height = "wrap";
+        {
+            TextView;
+            text = "Google Gemini Text to Speech Plugin - Generate high quality WAV audio from text using Google Gemini AI.\n\nFeatures: 24+ natural voices, " .. CHUNK_SIZE .. " character chunk processing (adjustable), automatic retry on rate limit, direct download to device, and WAV format output at 24kHz sample rate.\n\nFiles are saved in: /storage/emulated/0/Ranamuhammadsikandarhayat/\n\nVersion: " .. CURRENT_VERSION .. "\n\nDeveloper: Ranamuhammadsikandarhayat";
+            textSize = 14;
+            textColor = "#666666";
+            gravity = "left";
+            paddingBottom = "20dp";
+        };
+        {
+            Button;
+            id = "goBackButton";
+            text = "GO BACK";
+            layout_width = "fill";
+            layout_height = "wrap_content";
+            layout_marginTop = "10dp";
+            textSize = "14sp";
+            padding = "12dp";
+            backgroundColor = "#9E9E9E";
+            textColor = "#FFFFFF";
+        };
+    }
+    local help_dialog = LuaDialog(context)
+    help_dialog.setTitle("Developer: Ranamuhammadsikandarhayat")
+    help_dialog.setView(loadlayout(help_layout, help_views))
+    help_dialog.setCancelable(true)
+    
+    help_views.goBackButton.onClick = function()
+        help_dialog.dismiss()
+    end
+    
+    help_dialog.show()
+end
+
+function showMain()
+    loadSettings()
+    initMediaPlayer()
+    initTTS()
+    hasGenerated = false
+    
+    -- Create Ranamuhammadsikandarhayat folder on start
+    createRanaFolder()
+    
+    local views = {}
+    
+    local scrollLayout = {
+        ScrollView,
+        layout_width = "fill",
+        layout_height = "fill",
+        {
+            LinearLayout,
+            orientation = "vertical",
+            padding = "30dp",
+            layout_width = "fill",
+            layout_height = "wrap",
+            {
+                LinearLayout,
+                orientation = "horizontal",
+                layout_width = "fill",
+                layout_height = "wrap",
+                layout_marginBottom = "8dp",
+                {
+                    TextView,
+                    text = "Google Gemini Text to Speech",
+                    textSize = 20,
+                    textColor = "#2E7D32",
+                    gravity = "center",
+                    layout_width = "0dp",
+                    layout_weight = "1",
+                    typeface = Typeface.DEFAULT_BOLD
+                },
+                {
+                    Button,
+                    id = "moreBtn",
+                    text = "MORE OPTIONS",
+                    layout_width = "wrap",
+                    layout_height = "wrap",
+                    backgroundColor = "#9C27B0",
+                    textColor = "#FFFFFF",
+                    padding = "8dp",
+                    textSize = 12,
+                    layout_marginLeft = "5dp"
+                }
+            },
+            {
+                TextView,
+                text = "Developer: Ranamuhammadsikandarhayat  |  v" .. CURRENT_VERSION,
+                textSize = 12,
+                textColor = "#666666",
+                gravity = "center",
+                paddingBottom = "25dp"
+            },
+            {
+                EditText,
+                id = "textInput",
+                hint = "Type your text here...",
+                layout_width = "fill",
+                layout_height = "150dp",
+                backgroundColor = "#F5F5F5",
+                padding = "15dp",
+                gravity = Gravity.TOP,
+                textSize = 14,
+                layout_marginBottom = "15dp"
+            },
+            {
+                TextView,
+                text = "Voice Selection:",
+                textSize = 14,
+                textColor = "#333333",
+                paddingBottom = "5dp"
+            },
+            {
+                Spinner,
+                id = "voiceSpin",
+                layout_width = "fill",
+                layout_height = "wrap",
+                backgroundColor = "#F5F5F5",
+                layout_marginBottom = "15dp"
+            },
+            {
+                EditText,
+                id = "fileNameInput",
+                hint = "File name (without extension)",
+                layout_width = "fill",
+                layout_height = "wrap",
+                backgroundColor = "#F5F5F5",
+                padding = "12dp",
+                layout_marginBottom = "15dp"
+            },
+            {
+                Button,
+                id = "generateBtn",
+                text = "GENERATE",
+                layout_width = "fill",
+                layout_height = "wrap",
+                backgroundColor = "#2196F3",
+                textColor = "#FFFFFF",
+                padding = "16dp",
+                textSize = 16,
+                layout_marginBottom = "15dp"
+            },
+            {
+                LinearLayout,
+                id = "resultLayout",
+                orientation = "horizontal",
+                layout_width = "fill",
+                layout_height = "wrap",
+                visibility = View.GONE,
+                layout_marginBottom = "15dp",
+                {
+                    Button,
+                    id = "playBtn",
+                    text = "PLAY",
+                    layout_width = "0dp",
+                    layout_weight = "1",
+                    backgroundColor = "#4CAF50",
+                    textColor = "#FFFFFF",
+                    padding = "12dp",
+                    layout_marginRight = "5dp",
+                    enabled = false
+                },
+                {
+                    Button,
+                    id = "downloadBtn",
+                    text = "DOWNLOAD",
+                    layout_width = "0dp",
+                    layout_weight = "1",
+                    backgroundColor = "#FF9800",
+                    textColor = "#FFFFFF",
+                    padding = "12dp",
+                    layout_marginLeft = "5dp"
+                }
+            },
+            {
+                LinearLayout,
+                orientation = "horizontal",
+                layout_width = "fill",
+                layout_height = "wrap",
+                {
+                    Button,
+                    id = "exitBtn",
+                    text = "EXIT",
+                    layout_width = "fill",
+                    layout_height = "wrap",
+                    backgroundColor = "#D32F2F",
+                    textColor = "#FFFFFF",
+                    padding = "12dp",
+                    layout_marginLeft = "5dp"
+                }
+            }
+        }
+    }
+    
+    local dlg = LuaDialog(context)
+    dlg.setTitle("Google Gemini TTS")
+    dlg.setCancelable(false)
+    dlg.setView(loadlayout(scrollLayout, views))
+    mainDialog = dlg
+    
+    views.textInput.setText("")
+    views.fileNameInput.setText(userFileName)
+    
+    views.textInput.addTextChangedListener({
+        afterTextChanged = function(editable)
+            userText = editable.toString()
+        end
+    })
+    
+    views.fileNameInput.addTextChangedListener({
+        afterTextChanged = function(editable)
+            userFileName = editable.toString()
+            saveSettings()
+        end
+    })
+    
+    local voiceAdapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, VOICE_LIST)
+    voiceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    views.voiceSpin.setAdapter(voiceAdapter)
+    
+    for i, v in ipairs(VOICE_LIST) do
+        if v == selectedVoice then
+            views.voiceSpin.setSelection(i - 1)
+            break
+        end
+    end
+    
+    views.voiceSpin.onItemSelectedListener = {
+        onItemSelected = function(p, v, pos)
+            selectedVoice = VOICE_LIST[pos + 1]
+            saveSettings()
+        end
+    }
+    
+    views.playBtn.onClick = function()
+        if not generatedAudioPath then
+            showToast("Generate audio first")
+            return
+        end
+        if mediaPlayer == nil then
+            initMediaPlayer()
+            pcall(function()
+                mediaPlayer.setDataSource(generatedAudioPath)
+                mediaPlayer.prepare()
+            end)
+        end
+        togglePlayPause(views.playBtn)
+    end
+    
+    views.downloadBtn.onClick = function()
+        vibrate()
+        downloadAudioToInternalStorage()
+    end
+    
+    views.generateBtn.onClick = function()
+        local currentText = views.textInput.getText().toString()
+        if currentText == "" then
+            showToast("Please enter text first!")
+            vibrate()
+            return
+        end
+        
+        if googleApiKey == "" then
+            showToast("Please configure API key in API Setting!")
+            showApiSettings()
+            return
+        end
+        
+        userText = currentText
+        
+        if mediaPlayer ~= nil then
+            if isPlaying then
+                pcall(function() mediaPlayer.stop() end)
+                isPlaying = false
+            end
+            pcall(function() mediaPlayer.release() end)
+            mediaPlayer = nil
+        end
+        
+        deleteOldAudioFile()
+        
+        views.playBtn.setEnabled(false)
+        views.playBtn.setText("PLAY")
+        views.resultLayout.setVisibility(View.GONE)
+        isPlaying = false
+        hasGenerated = false
+        
+        views.generateBtn.setEnabled(false)
+        views.generateBtn.setText("GENERATING...")
+        views.generateBtn.setBackgroundColor(0xFF9E9E9E)
+        
+        local textLength = #userText
+        
+        if textLength <= CHUNK_SIZE then
+            generateSimpleAudio(userText, selectedVoice, googleApiKey, selectedModel, views.generateBtn, views.playBtn, views.resultLayout)
+        else
+            generateLongAudio(userText, selectedVoice, googleApiKey, selectedModel, views.generateBtn, views.playBtn, views.resultLayout)
+        end
+    end
+    
+    views.moreBtn.onClick = function()
+        vibrate()
+        showMoreOptions()
+    end
+    
+    views.exitBtn.onClick = function()
+        if activeHttpRequest ~= nil then
+            pcall(function()
+                if activeHttpRequest.cancel then
+                    activeHttpRequest.cancel()
+                end
+            end)
+            activeHttpRequest = nil
+        end
+        if mediaPlayer ~= nil then
+            pcall(function() mediaPlayer.release() end)
+            mediaPlayer = nil
+        end
+        deleteOldAudioFile()
+        if tts then
+            pcall(function() tts.stop() end)
+            pcall(function() tts.shutdown() end)
+        end
+        dlg.dismiss()
+    end
+    
+    dlg.show()
+end
+
+loadSettings()
+if googleApiKey == "" then
+    showToast("Please configure your API key first")
+    showApiSettings()
+else
+    showMain()
+end
+
+delay(5000, function()
+    Thread(luajava.bindClass("java.lang.Runnable"){
+        run = function()
+            Thread.sleep(2000)
+            checkUpdate()
+        end
+    }).start()
+end)
