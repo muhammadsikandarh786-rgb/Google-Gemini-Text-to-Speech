@@ -26,7 +26,7 @@ local mainHandler = Handler(Looper.getMainLooper())
 local tts = nil
 local mainDialog = nil
 
-local CURRENT_VERSION = "1.6"
+local CURRENT_VERSION = "1.7"
 local VERSION_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/version.txt"
 local UPDATE_CODE_URL = "https://raw.githubusercontent.com/muhammadsikandarh786-rgb/Google-Gemini-Text-to-Speech/main/main.lua"
 local PLUGIN_PATH = "/storage/emulated/0/解说/Plugins/Google Gemini Text to Speech/main.lua"
@@ -943,7 +943,7 @@ function showApiSettings()
     dlg.show()
 end
 
--- Files Manager Function
+-- Files Manager Function (Fixed)
 function showFilesManager()
     local folder = File(RANA_FOLDER)
     if not folder.exists() then
@@ -954,31 +954,44 @@ function showFilesManager()
     local files = {}
     local fileList = folder.listFiles()
     
-    if fileList == nil or #fileList == 0 then
-        showToast("No audio files found in " .. RANA_FOLDER)
+    -- Fix: Properly check if fileList is valid
+    if fileList == nil then
+        showToast("No audio files found")
         return
     end
     
-    -- Filter only .wav files
-    for i = 1, #fileList do
+    -- Convert Java array to Lua table properly
+    local fileArray = {}
+    local fileCount = 0
+    for i = 0, fileList.length - 1 do
         local file = fileList[i]
-        if file.isFile() and file.getName():match("%.wav$") then
-            table.insert(files, file)
+        if file.isFile() and tostring(file.getName()):match("%.wav$") then
+            fileCount = fileCount + 1
+            fileArray[fileCount] = file
         end
     end
     
-    if #files == 0 then
-        showToast("No WAV audio files found")
+    if fileCount == 0 then
+        showToast("No WAV audio files found in folder")
         return
     end
     
+    -- Copy to files table
+    for i = 1, fileCount do
+        files[i] = fileArray[i]
+    end
+    
     -- Sort files by last modified (newest first)
-    table.sort(files, function(a, b)
-        return a.lastModified() > b.lastModified()
-    end)
+    for i = 1, fileCount - 1 do
+        for j = i + 1, fileCount do
+            if files[i].lastModified() < files[j].lastModified() then
+                files[i], files[j] = files[j], files[i]
+            end
+        end
+    end
     
     local fileNames = {}
-    for i = 1, #files do
+    for i = 1, fileCount do
         local name = files[i].getName()
         local size = files[i].length()
         local sizeKB = math.floor(size / 1024)
@@ -992,7 +1005,7 @@ function showFilesManager()
     listView.setAdapter(adapter)
     
     local filesDialog = LuaDialog(context)
-    filesDialog.setTitle("My Audio Files (" .. #files .. " files)")
+    filesDialog.setTitle("My Audio Files (" .. fileCount .. " files)")
     filesDialog.setView(listView)
     filesDialog.setCancelable(true)
     filesDialog.setButton("CLOSE", function()
